@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index_page():
     try:
-        a = int(request.args["a"])
-        b = int(request.args["b"])
+        a = int(request.form["a"])
+        b = int(request.form["b"])
         summa = a + b
     except:
         a, b = 0, 0
